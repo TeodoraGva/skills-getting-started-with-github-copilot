@@ -114,14 +114,68 @@ section h3 {
 
 .participants-list {
   margin: 10px 0 0;
-  padding-left: 1.4rem;
+  padding-left: 0;
   color: #1f2937;
-  list-style: disc;
+  list-style: none;
 }
 
 .participants-list li {
   margin-bottom: 6px;
   line-height: 1.4;
+}
+
+.participant-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: rgba(57, 73, 171, 0.04);
+  animation: participantPulse 0.45s ease;
+}
+
+.participant-item span {
+  overflow-wrap: anywhere;
+}
+
+@keyframes participantPulse {
+  0% {
+    opacity: 0.4;
+    transform: translateY(4px) scale(0.98);
+    box-shadow: 0 0 0 rgba(57, 73, 171, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0) scale(1.01);
+    box-shadow: 0 0 0 4px rgba(57, 73, 171, 0.08);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    box-shadow: 0 0 0 rgba(57, 73, 171, 0);
+  }
+}
+
+.delete-participant {
+  border: none;
+  background: #fee2e2;
+  color: #b91c1c;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.delete-participant:hover {
+  background: #fecaca;
+  transform: scale(1.05);
 }
 
 .participants-list li.participants-empty {
